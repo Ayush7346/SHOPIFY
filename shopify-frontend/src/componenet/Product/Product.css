@@ -1,0 +1,16 @@
+.product-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.add-to-cart-button{
+font-weight: bold;
+
+}
+
+
+.card-product{
+    
+    width: 100%;
+}
