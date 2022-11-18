@@ -1,14 +1,27 @@
+.card-product{
+   border: none;
+}
+
+.card-img-top{
+background:transparent;
+}
+
 .product-buttons{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
 .add-to-cart-button{
 font-weight: bold;
+text-decoration: none;
 
 }
 
+.buy-button{
+padding: 5px 15px 5px 15px;
+}
 
 .card-product{
     

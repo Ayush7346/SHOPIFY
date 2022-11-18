@@ -18,12 +18,26 @@ router.get('/getProduct', (req, res) => {
    )
 })
 
+router.get('/searchProduct/:id', (req, res) => {
+
+const id = req.params.id;
+   Product.findById(id).then(
+      data => {
+         return res.status(200).json(data);
+      }
+
+   ).catch(
+      err => {
+         return res.status(400).json(err);
+      }
+   )
+})
 router.post('/addProduct', (req, res) => {
 
-   const {name, desc, price} = req.body
+   const {name, desc, price , picture_url} = req.body
 
    const new_product = new Product({
-      name, desc, price
+      name, desc, price, picture_url
    })
    
    new_product.save().then(

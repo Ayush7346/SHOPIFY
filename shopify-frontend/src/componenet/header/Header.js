@@ -1,6 +1,8 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./Header.css";
+import { FaUserCircle , FaSearch} from "react-icons/fa";
+import {Link} from 'react-router-dom'
 
 function Header() {
   return (
@@ -11,76 +13,64 @@ function Header() {
             Shopify
           </a>
 
-          <form class="d-flex">
-            <input
-              class="form-control me-2 search-header search-header"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success search-button" type="submit">
-              Search
-            </button>
-          </form>
 
-         
-          <div class="" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <div className="header-menu">
-                <li class="nav-item">
-                  <a class="nav-link nav-menu" aria-current="page" href="#">
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-menu" href="#">
-                    About Us
-                  </a>
-                </li>
-              </div>
-            </ul>
-          </div>
 
-          <AiOutlineShoppingCart
-            className="cart-button"
-            size={30}
-            color={"white"}
-          />
 
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle profile-header"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style={{ color: "white" }}
-            >
-              Profile
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="#">
-                  login
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div className="header-menu">
+              <li class="nav-item">
+                <a class="nav-link nav-menu" aria-current="page" href="#">
+                  Store
                 </a>
               </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Settings
+              <li class="nav-item">
+                <a class="nav-link nav-menu" href="#">
+                  Mac
                 </a>
               </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Contact Us
+              <li class="nav-item">
+                <a class="nav-link nav-menu" href="#">
+                  iPad
+                </a>
+              </li><li class="nav-item">
+                <a class="nav-link nav-menu" href="#">
+                  iPhone
+                </a>
+              </li><li class="nav-item">
+                <a class="nav-link nav-menu" href="#">
+                  Watch
+                </a>
+              </li><li class="nav-item">
+                <a class="nav-link nav-menu" href="#">
+                  AirPods
                 </a>
               </li>
-            </ul>
-          </li>
+            </div>
+          </ul>
         </div>
+        
+        <div className="header-login-cart">
+        <FaSearch 
+        className="profile-button"
+        size={18}
+        color={"white"}
+        />
+        
+        <Link to='/cart'>
+        <AiOutlineShoppingCart
+          className="cart-button"
+          size={20}
+          color={"white"}
+        />
+        </Link>
+        <FaUserCircle 
+         className="profile-button"
+         color={"white"}
+        />
+     
+</div>
+
       </nav>
     </div>
   );
