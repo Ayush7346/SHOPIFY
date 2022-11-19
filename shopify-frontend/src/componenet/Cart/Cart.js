@@ -1,70 +1,60 @@
-import React from 'react'
+import React , {useEffect ,useState} from 'react'
 import './Cart.css'
+import {connect} from 'react-redux'
+import {fetchCart} from '../../Action/CartAction'
+import CartTile from './CartTile';
 
-function Cart() {
+
+
+
+function Cart({cart_reducer, fetchCart}) {
+
+  
+  const [quantity , setQuantity] =  useState(1);
+  
+  const handleQuantity = (x) => {
+       setQuantity(x);
+  }
+  
+useEffect(
+        () =>{
+        
+    
+            // const arr = location.pathname.split('/');
+            const prd_id = "6376085d30fe3cfabe1d4761"; 
+            console.log(prd_id)
+            fetchCart(prd_id);
+        
+        }
+
+,[])
+
+const totalPrice = () =>{
+     
+     let val = 0;
+     cart_reducer.cartdetail.map(e =>(
+          
+          val = val + e.price
+     ))
+     
+     console.log(val);
+     
+      return val;
+}
+
+
+
     return (
         <div>
         
-        {[1,2].map(e => (
-        
-        <div className='container cart-bag my-3'>
 
-        <div className='prod_image'>
-            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664497359481"
-                style={
-                    {
-                        height: "300px",
-                        width: "300px"
-                    }
-                }
-            />
-        </div>
+            {cart_reducer.cartdetail.map(e => (
 
-        <div className='cart_detail my-5'>
+             <CartTile name = {e.name} price={e.price}
+               desc={e.desc} picture_url = {e.picture_url} 
+             />
 
-
-            <div className='details-prd my-4'>
-
-                <div
-                    style={{ fontWeight: "bolder", fontSize: "23px" }}
-                >iPhone 14</div>
-                <div>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                            style={{ background: "transparent", color: "black" }}
-                        >
-                            Quantity
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">1</a></li>
-                            <li><a class="dropdown-item" href="#">2</a></li>
-                            <li><a class="dropdown-item" href="#">3</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div>Price</div>
-
-
-            </div>
-
-            <hr />
-
-            <div className='details-prd my-4'>
-                <div>Add a gift message</div>
-                <div><a
-                    style={{ fontWeight: "lighter", fontSize: "15px", color: "blue" }}
-                >Add</a></div>
-            </div>
-
-            <hr />
-
-
-        </div>
-
-    </div>
-        
-        ))}
+            ))}
 
 
             <div>
@@ -86,8 +76,8 @@ function Cart() {
                     <div className='details-prd my-4'>
                         <div
                             style={{ fontWeight: "bolder", fontSize: "23px" }}
-                        >Total</div>
-                        <div>Price</div>
+                        >Price</div>
+                        <div>{totalPrice()}</div>
                     </div>
 
                     <hr />
@@ -105,4 +95,10 @@ function Cart() {
     )
 }
 
-export default Cart
+const mapStateToProps = (state) =>({
+   
+   cart_reducer : state.cartReducer
+
+})
+
+export default  connect(mapStateToProps , {fetchCart})  (Cart);

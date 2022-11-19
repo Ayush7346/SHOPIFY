@@ -15,7 +15,7 @@ function ProductDetail({ prodReducer, searchProduct }) {
 
     useEffect(() => {
 
-        const arr = location.pathname.split('/');
+        const arr = location.pathname.split('/')
         const prd_id = arr[2];
 
         searchProduct(prd_id);

@@ -26,6 +26,10 @@ const cart_schema = new Schema({
           type: Number,
           required: true,
         },
+        picture_url:{
+        type:String,
+        }
+        
       }
   
   ]
