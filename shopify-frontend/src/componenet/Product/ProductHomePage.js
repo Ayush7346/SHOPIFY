@@ -16,7 +16,7 @@ function ProductHomePage({ product_reducer, getProducts }) {
             getProducts();
         }
 
-        , [])
+        , [product_reducer])
 
     return (
         <div>

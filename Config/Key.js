@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 const config = {
-    mongoKey : "mongodb+srv://test_mern:codecrisp123@cluster0.dxjek.mongodb.net/?retryWrites=true&w=majority"
+    mongoKey :process.env.MONGO_KEY
 }
 
 

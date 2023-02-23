@@ -72,7 +72,8 @@ function CartTile(props) {
                     </div>
 
                     <hr />
-
+Delete
+                    <hr />
 
                 </div>
 

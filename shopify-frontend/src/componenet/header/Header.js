@@ -9,7 +9,8 @@ function Header() {
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand header-logo" href="#">
+        
+          <a class="navbar-brand header-logo" href="/">
             Shopify
           </a>
 
@@ -19,11 +20,15 @@ function Header() {
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <div className="header-menu">
+            <Link to='/'>
               <li class="nav-item">
-                <a class="nav-link nav-menu" aria-current="page" href="#">
+             
+                <a class="nav-link nav-menu" aria-current="page" href="">
                   Store
                 </a>
+               
               </li>
+              </Link>
               <li class="nav-item">
                 <a class="nav-link nav-menu" href="#">
                   Mac
@@ -64,10 +69,13 @@ function Header() {
           color={"white"}
         />
         </Link>
+        
+        <Link  to='/login'> 
         <FaUserCircle 
          className="profile-button"
          color={"white"}
         />
+        </Link>
      
 </div>
 

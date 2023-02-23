@@ -6,7 +6,7 @@ const Product = require('../model/Product')
 
 router.get('/getProduct', (req, res) => {
 
-   Product.find().then(
+   Product.find().sort({name : -1}).then(
       data => {
          return res.status(200).json(data);
       }

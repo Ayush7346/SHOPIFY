@@ -8,7 +8,7 @@ import myStore from './Store'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ProductDetail from './componenet/ProductDetails/ProductDetail';
 import Cart from './componenet/Cart/Cart';
-
+import Login from './componenet/Login';
 function App() {
   return (
 
@@ -17,9 +17,11 @@ function App() {
         <div className="App">
           <Header />
           <Routes>
-            <Route path='/' element={  <ProductHomePage />} />
+            <Route path='/' element={ <> <ProductHomePage /> </>  } />
+            <Route path='/login' element={  <Login />} />
             <Route path='/product/*' element={  <ProductDetail />} />
             <Route path='/cart' element={  <Cart />} />
+          
             
             
     
