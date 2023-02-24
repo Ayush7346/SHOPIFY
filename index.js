@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const CartRoute = require('./routes/CartRoute').router
 const UserRoute = require('./routes/UserRoute')
 const path = require('path');
+require('dotenv').config()
+
 
 mongo.connect(mongoKey , {dbName:"SHOPIFY"}).then((e) => {
   console.log("mongo connected");
@@ -21,7 +23,7 @@ app.use('/cart',CartRoute);
 app.use('/user', UserRoute);
 
 
-app.use(express.static(path.join(__dirname, "./shopify-frontend/build")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 app.get("*", function(_, res) {
     res.sendFile(
@@ -34,6 +36,6 @@ app.get("*", function(_, res) {
     )
 })
 
-app.listen(8070, () => {
-  console.log("port : 8070");
+app.listen(process.env.PORT, () => {
+  console.log("port : ",process.env.PORT);
 });

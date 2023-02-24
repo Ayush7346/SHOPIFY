@@ -1,14 +1,50 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./index.js",  
-        "use": "@vercel/node"
-      },
-      {
-        "src": "./shopify-frontend/build",    
-        "use": "@vercel/static"
-      }
-    ]
-
-  }
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/products",
+      "dest": "index.js"
+    },
+    {
+      "src": "/products/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/cart",
+      "dest": "index.js"
+    },
+    {
+      "src": "/cart/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/add",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "build/index.html"
+    },
+    {
+      "src": "/user",
+      "dest": "index.js"
+    },
+    {
+      "src": "/user/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "build/$1"
+    }
+  ]
+}
