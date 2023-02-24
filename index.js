@@ -34,6 +34,6 @@ app.get("*", function(_, res) {
     )
 })
 
-app.listen(8080, () => {
-  console.log("port : 8080");
+app.listen(8070, () => {
+  console.log("port : 8070");
 });
