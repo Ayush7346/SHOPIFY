@@ -9,13 +9,6 @@
         "src": "./shopify-frontend/build",    
         "use": "@vercel/static"
       }
-    ],
-  
-
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.js"
-      }
     ]
+
   }

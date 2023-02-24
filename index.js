@@ -6,7 +6,7 @@ const productRoute = require('./routes/ProductDetails');
 const bodyParser = require("body-parser");
 const CartRoute = require('./routes/CartRoute').router
 const UserRoute = require('./routes/UserRoute')
-
+const path = require('path');
 
 mongo.connect(mongoKey , {dbName:"SHOPIFY"}).then((e) => {
   console.log("mongo connected");
