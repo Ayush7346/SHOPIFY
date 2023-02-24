@@ -21,6 +21,19 @@ app.use('/cart',CartRoute);
 app.use('/user', UserRoute);
 
 
+app.use(express.static(path.join(__dirname, "../shopify-frontend/build")));
+
+app.get("*", function(_, res) {
+    res.sendFile(
+        path.join(__dirname, "../shopify-frontend/index.html"),
+        function (err) {
+            if(err) {
+                res.status(500).send(err)
+            }
+        }
+    )
+})
+
 app.listen(8080, () => {
   console.log("port : 8080");
 });
